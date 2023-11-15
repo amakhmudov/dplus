@@ -1,0 +1,15 @@
+.popup{
+  @apply fixed inset-0 z-30 !m-0 flex h-screen w-screen items-center justify-center text-sm overflow-y-auto bg-black bg-opacity-80;
+
+  &__content{
+    @apply relative m-auto w-full max-w-3xl rounded-lg bg-white p-6 space-y-6 shadow-lg;
+  }
+
+  &__title{
+    @apply h2 text-center !mt-0;
+  }
+
+  &__button{
+    @apply absolute right-1 top-1 flex h-6 w-6 items-center justify-center rounded bg-neutral-200 hover:bg-neutral-300 transition;
+  }
+}

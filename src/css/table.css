@@ -1,0 +1,168 @@
+.table-overflow{
+  @apply overflow-hidden overflow-x-auto;
+}
+
+table.table{
+  @apply w-full table-auto bg-white shadow text-sm rounded;
+
+  thead{
+    @apply text-left bg-accent/20;
+
+    th{
+      @apply border border-r-body/10 text-body whitespace-nowrap;
+      
+      &:first-child{
+        @apply border-l-0 rounded-tl;
+      }
+
+      &:last-child{
+        @apply border-r-0 rounded-tr;
+      }
+    }
+
+    .title{
+      @apply w-full p-3 flex items-center justify-between space-x-2;
+
+      &__status{
+        @apply p-1 bg-white/40 rounded;
+
+        &--active{
+          @apply bg-white/90;
+
+          svg{
+            @apply rotate-180;
+          }
+        }
+      }
+    }
+  }
+
+  tbody{
+    tr:last-child{
+      td{
+        &:first-child{
+          @apply rounded-bl;
+        }
+
+        &:last-child{
+          @apply rounded-br;
+        }
+      }
+    }
+
+    td{
+      @apply px-3 py-1.5 border whitespace-nowrap;
+      
+      &:first-child{
+        @apply border-l-0 rounded-tl;
+      }
+
+      &:last-child{
+        @apply border-r-0 rounded-tr;
+      }
+    }
+  }
+
+  &:not(.multiple-tbody) tbody tr{
+    @apply even:bg-neutral-50;
+  }
+
+  &.multiple-tbody tbody{
+    @apply odd:bg-neutral-50;
+  }
+
+  tfoot{
+    td{
+      @apply px-3 py-1.5 border;
+      
+      &:first-child{
+        @apply border-l-0;
+      }
+
+      &:last-child{
+        @apply border-r-0;
+      }
+    }
+
+  }
+}
+
+.table-muted{
+  @apply table-auto text-sm;
+
+  td{
+    @apply px-3 py-1.5 first:pl-0 last:pr-0
+  }
+}
+
+.table-long{
+  @apply table-auto text-sm;
+
+  thead{
+    @apply text-left bg-accent/20;
+
+    th{
+      @apply w-full p-3 border border-r-body/10 text-body text-right whitespace-nowrap;
+      
+      &:first-child{
+        @apply sticky left-0 border-l-0 rounded-tl bg-accent-light z-20;
+      }
+
+      &:last-child{
+        @apply border-r-0 rounded-tr;
+      }
+    }
+  }
+
+  tbody{
+    td:not(:first-child){
+      @apply text-right;
+    }
+
+    tr.indent-left{
+      td:first-child{
+        @apply pl-5;
+      }
+    }
+
+    tr.indent-left-twice{
+      td:first-child{
+        @apply pl-7;
+      }
+    }
+
+    .tr-editable{
+      .td-editable{
+        @apply p-0 text-right;
+      }
+
+      input{
+        @apply px-3 py-1.5 text-right inset-0 ring-1 ring-inset ring-error bg-accent-light/50;
+      }
+    }
+
+    tr:last-child{
+      td{
+        &:first-child{
+          @apply rounded-bl;
+        }
+
+        &:last-child{
+          @apply rounded-br;
+        }
+      }
+    }
+
+    td{
+      @apply px-3 py-1.5 border whitespace-nowrap;
+      
+      &:first-child{
+        @apply sticky left-0 border-l-0 bg-white;
+      }
+
+      &:last-child{
+        @apply border-r-0;
+      }
+    }
+  }
+}

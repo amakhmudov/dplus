@@ -1,0 +1,33 @@
+{
+  "name": "dplus",
+  "version": "1.0.0",
+  "description": "dplus",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./tailwind.css -o ./src/css/main.css --postcss --watch",
+    "svg": "svgo -f ./src/img/svg -o ./src/img/svgo",
+    "sprite": "svg-sprite-generate -d ./src/img/svgo/ -o ./src/img/s-spr.svg",
+    "/*init": "browser-sync init  <- this line to initialize default config file*/",
+    "start": "browser-sync start --config \"bs-config.js\"",
+    "dev-all": "npm-run-all --parallel dev start"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Alisher Makhmudov",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/line-clamp": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "postcss-import": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "npm-run-all": "latest",
+    "svg-sprite-generator": "latest",
+    "svgo": "latest"
+  }
+}

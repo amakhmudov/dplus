@@ -1,0 +1,64 @@
+html,
+body {
+  @apply relative h-full p-0 m-0 font-inter text-body-light;
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.bd {
+  border: 1px solid #f00;
+}
+
+#container {
+  @apply flex flex-col min-h-full;
+}
+
+.main {
+  @apply flex-grow;
+}
+
+.footer {
+  // @apply py-6 text-sm bg-white border-t shrink-0;
+}
+
+.container {
+  @apply w-full px-4 mx-auto 2xl-down:max-w-full;
+}
+
+.svg-stroke {
+  @apply stroke-current shrink-0 fill-none;
+}
+
+.center {
+  @apply flex items-center justify-center;
+}
+
+.custom-scroll.custom-scroll-y {
+  @apply pr-2;
+}
+
+.custom-scroll.custom-scroll-x {
+  @apply pb-2;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  @apply w-1 h-1 rounded-2xl;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  @apply rounded-2xl bg-accent;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  @apply rounded-2xl bg-accent/20;
+}
+
+.tooltip {
+  @apply pointer-events-none absolute top-full left-1/2 z-10 w-36 duration-300 max-w-[200px] translate-y-4 -translate-x-1/2 rounded bg-body px-3 py-2 text-center leading-tight text-white opacity-0 shadow transition will-change-transform before:absolute before:top-0 before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:-translate-y-1/2 before:rotate-45 before:bg-body before:content-[''] group-hover:translate-y-2 group-hover:opacity-100;
+}
+
+.toastr {
+  @apply fixed z-50 flex p-6 space-x-3 transition bg-white rounded-lg shadow-lg text-body top-4 right-4 will-change-transform;
+}

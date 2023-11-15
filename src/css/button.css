@@ -1,0 +1,19 @@
+.btn{
+  @apply px-6 py-3 rounded text-white bg-accent hover:bg-opacity-80 transition;
+}
+
+.btn-clear{
+  @apply px-6 py-3 rounded border;
+}
+
+.btn-with-icon{
+  @apply flex items-center space-x-2;
+
+  svg{
+    @apply shrink-0;
+  }
+}
+
+.badge{
+  @apply relative border rounded-full py-1 px-3 pl-6 before:content-[''] before:rounded-full before:w-1 before:h-1 before:absolute before:left-3 before:top-1/2 before:-translate-y-1/2 before:bg-body;
+}
