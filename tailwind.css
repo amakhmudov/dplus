@@ -12,3 +12,5 @@
 /*@import "./src/css/tabs" layer(components);*/
 @import "./src/css/popup" layer(components);
 /*@import "./src/css/flatpickr" layer(components);*/
+
+@import "./src/css/home" layer(components);

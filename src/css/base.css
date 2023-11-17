@@ -1,6 +1,6 @@
 html,
 body {
-  @apply relative h-full p-0 m-0 font-inter text-body-light;
+  @apply relative h-full p-0 m-0 font-inter text-body;
 }
 
 [x-cloak] {
@@ -12,7 +12,7 @@ body {
 }
 
 #container {
-  @apply flex flex-col min-h-full;
+  @apply flex flex-col min-h-full relative z-10;
 }
 
 .main {
@@ -20,7 +20,7 @@ body {
 }
 
 .footer {
-  // @apply py-6 text-sm bg-white border-t shrink-0;
+/*  @apply py-6 text-sm bg-white border-t shrink-0;*/
 }
 
 .container {
@@ -31,7 +31,10 @@ body {
   @apply stroke-current shrink-0 fill-none;
 }
 
-.center {
+
+
+
+/*.center {
   @apply flex items-center justify-center;
 }
 
@@ -62,3 +65,4 @@ body {
 .toastr {
   @apply fixed z-50 flex p-6 space-x-3 transition bg-white rounded-lg shadow-lg text-body top-4 right-4 will-change-transform;
 }
+*/

@@ -1,0 +1,5 @@
+.home{
+  background: url(../img/background/home.jpg) 50% 50% no-repeat;
+
+  @apply flex items-center justify-center bg-cover after:content-[''] after:fixed after:inset-0 after:bg-black/50;
+}

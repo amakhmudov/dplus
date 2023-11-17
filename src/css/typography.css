@@ -1,12 +1,3 @@
-h1, .h1{
-  @apply text-lg font-semibold text-body uppercase tracking-wider;
-}
-h2, .h2{
-  @apply text-xl text-body font-medium;
-}
-h3, .h3{
-  @apply text-sm text-body font-semibold uppercase tracking-wider;
-}
 a{
   @apply text-accent underline hover:no-underline;
 }
