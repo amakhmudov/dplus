@@ -585,16 +585,24 @@ body {
   color: rgb(68 68 68 / var(--tw-text-opacity));
 }
 
+body {
+  font-size: 0.8125rem;
+}
+
 [x-cloak] {
   display: none !important;
 }
 
+.bd {
+  border: 1px solid #f00;
+}
+
 #container {
-  position: relative;
-  z-index: 10;
-  display: flex;
   min-height: 100%;
-  flex-direction: column;
+}
+
+.main {
+  /*  @apply flex-grow;*/
 }
 
 .container {
@@ -660,11 +668,6 @@ a:hover {
   text-decoration-line: none;
 }
 
-.form-row {
-  --tw-text-opacity: 1;
-  color: rgb(68 68 68 / var(--tw-text-opacity));
-}
-
 .form-control {
   display: block;
   width: 100%;
@@ -703,101 +706,6 @@ a:hover {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(163 163 163 / var(--tw-ring-opacity));
-}
-
-.c-checkbox {
-  position: relative;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.c-checkbox.is_error .c-checkbox__icon {
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity));
-}
-
-.c-checkbox input[type="checkbox"] {
-  position: absolute;
-  height: 0px;
-  width: 0px;
-  cursor: pointer;
-  opacity: 0;
-}
-
-.c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon,
-.c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
-  border-color: transparent;
-  --tw-bg-opacity: 1;
-  background-color: rgb(42 108 207 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon svg {
-  visibility: visible;
-}
-
-.c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
-  cursor: not-allowed;
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.c-checkbox input[type="checkbox"]:disabled:checked + .c-checkbox__icon svg {
-  cursor: not-allowed;
-}
-
-.c-checkbox__icon {
-  position: relative;
-  height: 1.25rem;
-  width: 1.25rem;
-  flex-shrink: 0;
-  border-radius: 0.25rem;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(229 229 229 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.c-checkbox__icon:focus,
-.c-checkbox__icon:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(245 245 245 / var(--tw-border-opacity));
-}
-
-.c-checkbox__icon svg {
-  visibility: hidden;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 1rem;
-  width: 1rem;
-  --tw-translate-x: -50%;
-  --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  cursor: pointer;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.c-checkbox__title {
-  margin-left: 0.5rem;
-  cursor: pointer;
 }
 
 .btn {
@@ -853,8 +761,14 @@ table.table thead .title {
   content: var(--tw-content);
 }
 
-.pointer-events-none {
-  pointer-events: none;
+#container {
+  border: 1px solid #f00;
+  display: flex;
+}
+
+.sidebar {
+  width: 100%;
+  max-width: 20rem;
 }
 
 .absolute {
@@ -870,20 +784,12 @@ table.table thead .title {
   bottom: 0px;
 }
 
-.left-3 {
-  left: 0.75rem;
-}
-
 .right-0 {
   right: 0px;
 }
 
 .right-2 {
   right: 0.5rem;
-}
-
-.right-3 {
-  right: 0.75rem;
 }
 
 .top-1\/2 {
@@ -899,10 +805,6 @@ table.table thead .title {
   margin-right: auto;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -915,24 +817,8 @@ table.table thead .title {
   height: 1rem;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.min-h-screen {
-  min-height: 100vh;
-}
-
 .w-4 {
   width: 1rem;
-}
-
-.w-5 {
-  width: 1.25rem;
 }
 
 .w-5\/12 {
@@ -955,31 +841,13 @@ table.table thead .title {
   max-width: 56rem;
 }
 
-.max-w-full {
-  max-width: 100%;
-}
-
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.appearance-none {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
 .items-center {
   align-items: center;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .gap-3 {
@@ -998,12 +866,6 @@ table.table thead .title {
   margin-bottom: calc(0.375rem * var(--tw-space-y-reverse));
 }
 
-.space-y-12 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(3rem * var(--tw-space-y-reverse));
-}
-
 .space-y-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1016,12 +878,6 @@ table.table thead .title {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1030,22 +886,8 @@ table.table thead .title {
   border-radius: 0.25rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
-.border-neutral-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 229 229 / var(--tw-border-opacity));
-}
-
 .bg-accent\/90 {
   background-color: rgb(42 108 207 / 0.9);
-}
-
-.bg-neutral-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1053,24 +895,8 @@ table.table thead .title {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat;
-}
-
 .stroke-error {
   stroke: #ff0000;
-}
-
-.stroke-2 {
-  stroke-width: 2;
-}
-
-.p-6 {
-  padding: 1.5rem;
 }
 
 .p-8 {
@@ -1082,23 +908,9 @@ table.table thead .title {
   padding-right: 0.5rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
-}
-
-.pl-10 {
-  padding-left: 2.5rem;
 }
 
 .pr-11 {
@@ -1110,18 +922,9 @@ table.table thead .title {
   line-height: 2rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-ssm {
-  font-size: 0.8125rem;
 }
 
 .font-extralight {
@@ -1139,11 +942,6 @@ table.table thead .title {
 .text-error {
   --tw-text-opacity: 1;
   color: rgb(255 0 0 / var(--tw-text-opacity));
-}
-
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -1178,51 +976,7 @@ table.table thead .title {
 
 /*@import "./src/css/flatpickr" layer(components);*/
 
-.before\:fixed::before {
-  content: var(--tw-content);
-  position: fixed;
-}
-
-.before\:z-0::before {
-  content: var(--tw-content);
-  z-index: 0;
-}
-
-.before\:h-full::before {
-  content: var(--tw-content);
-  height: 100%;
-}
-
-.before\:w-full::before {
-  content: var(--tw-content);
-  width: 100%;
-}
-
-.before\:bg-black\/10::before {
-  content: var(--tw-content);
-  background-color: rgb(0 0 0 / 0.1);
-}
-
-.before\:content-\[\'\'\]::before {
-  --tw-content: '';
-  content: var(--tw-content);
-}
-
 .focus\:ring-error:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(255 0 0 / var(--tw-ring-opacity));
-}
-
-@media (min-width: 641px) {
-  .sm\:w-28 {
-    width: 7rem;
-  }
-
-  .sm\:max-w-lg {
-    max-width: 32rem;
-  }
-
-  .sm\:p-20 {
-    padding: 5rem;
-  }
 }

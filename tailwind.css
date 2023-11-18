@@ -14,3 +14,4 @@
 /*@import "./src/css/flatpickr" layer(components);*/
 
 @import "./src/css/home" layer(components);
+@import "./src/css/dashboard" layer(components);

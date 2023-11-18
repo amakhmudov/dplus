@@ -25,6 +25,7 @@ module.exports = {
         },
         accent: {
           DEFAULT: "#2a6ccf",
+          dark: "#243042"
         },
         error: "#ff0000",
       },
@@ -32,7 +33,7 @@ module.exports = {
         inter: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        "ssm": "0.8125rem"
+        ssm: "0.8125rem"
       }
     },
   },

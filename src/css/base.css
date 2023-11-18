@@ -3,6 +3,10 @@ body {
   @apply relative h-full p-0 m-0 font-inter text-body;
 }
 
+body{
+  @apply text-ssm;
+}
+
 [x-cloak] {
   display: none !important;
 }
@@ -12,11 +16,11 @@ body {
 }
 
 #container {
-  @apply flex flex-col min-h-full relative z-10;
+  @apply min-h-full;
 }
 
 .main {
-  @apply flex-grow;
+/*  @apply flex-grow;*/
 }
 
 .footer {
