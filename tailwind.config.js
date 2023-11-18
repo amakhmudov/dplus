@@ -31,6 +31,9 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", ...defaultTheme.fontFamily.sans],
       },
+      fontSize: {
+        "ssm": "0.8125rem"
+      }
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

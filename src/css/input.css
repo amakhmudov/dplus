@@ -14,7 +14,7 @@ input.clear-number {
 }
 
 .form-control {
-  @apply block rounded w-full px-3 py-2.5 text-xs placeholder:text-body shadow ring-1 ring-neutral-200;
+  @apply block rounded w-full px-3 py-2.5 text-xs placeholder:text-body shadow ring-1 ring-neutral-200 focus:ring-1 focus:ring-neutral-400 outline-none;
 }
 
 .c-select{
