@@ -20,7 +20,7 @@ body{
 }
 
 .main {
-/*  @apply flex-grow;*/
+  @apply p-6 bg-white rounded-l-lg flex-grow;
 }
 
 .footer {
