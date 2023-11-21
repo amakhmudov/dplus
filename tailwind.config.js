@@ -27,6 +27,9 @@ module.exports = {
           DEFAULT: "#2a6ccf",
           dark: "#243042"
         },
+        gray:{
+          DEFAULT: "#eee"
+        },
         error: "#ff0000",
       },
       fontFamily: {
@@ -34,6 +37,9 @@ module.exports = {
       },
       fontSize: {
         ssm: "0.8125rem"
+      },
+      strokeWidth:{
+        "1.5": "1.5px"
       }
     },
   },

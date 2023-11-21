@@ -22,7 +22,7 @@ module.exports = {
   {
     name: 'removeAttrs',
     params: {
-      attrs: ['data-name', 'svg:width', 'svg:height']
+      attrs: ['data-name', 'svg:width', 'svg:height', 'stroke-width']
     }
   },
   {
