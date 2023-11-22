@@ -16,7 +16,7 @@ body{
 }
 
 #container {
-  @apply min-h-full;
+  @apply min-h-full shadow-lg;
 }
 
 .main {
@@ -32,7 +32,15 @@ body{
 }
 
 .svg-stroke {
-  @apply stroke-current shrink-0 fill-none;
+  @apply stroke-current shrink-0 stroke-1.5 fill-none;
+}
+
+.dropdown{
+  @apply absolute text-xs top-full left-0 rounded w-full py-2.5 bg-white shadow ring-1 ring-neutral-200 z-20;
+}
+
+.badge{
+  @apply text-xs px-1 py-0.5 text-xxs inline-flex items-center justify-center rounded-full leading-none text-white bg-accent;
 }
 
 

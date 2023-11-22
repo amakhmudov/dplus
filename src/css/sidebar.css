@@ -3,11 +3,21 @@
 }
 
 .sidebar-nav{
-  > ul {
-    @apply space-y-4;
+  ul {
+    ul{
+      @apply pl-6;
+
+      a{
+        @apply before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-white/50 before:mr-3;
+      }
+    }
   }
 
-  > ul > li > a{
-    @apply flex items-center space-x-3 text-white/50 no-underline;
+  a, button{
+    @apply w-full flex items-center py-2 space-x-3 text-white/50 no-underline hover:text-white;
+  }
+
+  .is_active{
+    @apply text-white/80 before:content-[''] before:w-1 before:h-1 before:rounded-full before:bg-white/80 before:mr-3;
   }
 }

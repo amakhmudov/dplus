@@ -36,7 +36,8 @@ module.exports = {
         inter: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        ssm: "0.8125rem"
+        ssm: "0.8125rem",
+        xxs: "0.625rem"
       },
       strokeWidth:{
         "1.5": "1.5px"

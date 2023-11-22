@@ -17,7 +17,3 @@
     @apply shrink-0;
   }
 }
-
-.badge{
-  @apply relative border rounded-full py-1 px-3 pl-6 before:content-[''] before:rounded-full before:w-1 before:h-1 before:absolute before:left-3 before:top-1/2 before:-translate-y-1/2 before:bg-body;
-}
