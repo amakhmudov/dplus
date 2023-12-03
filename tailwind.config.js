@@ -20,7 +20,7 @@ module.exports = {
       },
       colors: {
         body: {
-          DEFAULT: "#444",
+          DEFAULT: "#555",
           dark: "#111",
         },
         accent: {

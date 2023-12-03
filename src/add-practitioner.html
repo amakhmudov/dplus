@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DPlus | Add Practitioner page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="{bodyScroll: true}" x-bind:class="bodyScroll || 'overflow-hidden'">
+  <div id="container" class="container px-0 flex mx-auto bg-accent-dark">
+    <aside class="sidebar p-4 flex flex-col space-y-8">
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" fill="none" class="text-white">
+          <path fill="currentColor" d="M30.423 18.302c-.98 8.05-10.498 11.221-19.166 10.166-8.67-1.056-9.123-5.76-8.142-13.812C4.095 6.606 6.28 2.223 14.95 3.28c8.669 1.055 16.454 6.972 15.473 15.023Z"/>
+          <path fill="#2A6CCF" d="M29.36 17.382C28.59 25.48 17.95 30.34 10.066 30.34c-7.884 0-7.884 1.5-7.884-15.546C2.182-.49 1.576 1.015 12.86 1.015c8.474 0 17.272 8.27 16.5 16.367Z"/>
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13.957 9.71v11.495m5.747-5.747H8.21"/>
+        </svg>
+      </a>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#identification"></use>
+              </svg>
+              <span>Date entry</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#book-open"></use>
+              </svg>
+              <span>Orders</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#phone-arrow-up-right"></use>
+              </svg>
+              <span>Calling</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#arrow-uturn-right"></use>
+              </svg>
+              <span>Routing</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#pencil-square"></use>
+              </svg>
+              <span>Quality Control</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#currency-dollar"></use>
+              </svg>
+              <span>Billing</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#presentation-chart-line"></use>
+              </svg>
+              <span>Accounting</span>
+            </a>
+          </li>
+
+          <li x-data="{isOpen: true}">
+            <button x-on:click="isOpen = ! isOpen" x-bind:class="isOpen && 'is_active'" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#cube"></use>
+              </svg>
+              <span>Masters</span>
+            </button>
+
+            <ul x-cloak x-show="isOpen" class="sidebar-nav__inner">
+              <li><a href="practioner.html" class="is_active">Practitioner</a></li>
+              <li><a href="#">Holidays</a></li>
+              <li><a href="#">Teams</a></li>
+              <li><a href="#">Measure</a></li>
+              <li><a href="#">Routes</a></li>
+              <li><a href="#">Sales state</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#hand-raised"></use>
+              </svg>
+              <span>Administration</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="flex items-center space-x-3">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#rectangle-group"></use>
+              </svg>
+              <span>Reports</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="sidebar-nav !mt-auto pt-4 border-white/10 border-t">
+        <ul>
+          <li>
+            <a href="#">
+              <svg class="w-6 h-6 svg-stroke">
+                <use href="img/s-spr.svg#question-mark-circle"></use>
+              </svg>
+              <span>Help</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main overflow-hidden">
+      <div class="flex justify-between space-x-6">
+        <ul class="breadcrumbs">
+          <li><a href="dashboard.html">Masters</a></li>
+          <li><a href="practitioner.html">Doctors master</a></li>
+          <li>Bruce Lee</li>
+        </ul>
+
+        <div class="relative">
+          <button class="flex items-center space-x-3">
+            <img src="img/people/john-doe.jpg" width="40" height="40" alt="Mr. Bruce" class="rounded-full w-10 aspect-square object-cover">
+
+            <svg class="w-4 h-4 stroke-2 svg-stroke">
+              <use href="img/s-spr.svg#chevron-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <hr class="mt-3 mb-6 border-body/20 border-t">
+
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex space-x-3">
+            <img src="img/people/bruce-lee.jpg" width="40" height="40" alt="Bruce Lee" class="rounded-full w-10 aspect-square object-cover">
+
+            <div>
+              <p><strong class="font-medium text-sm text-body-dark">Bruce Lee</strong></p>
+              <p>Created: <span class="text-body-dark">25.07.2012</span> at <span class="text-body-dark">7:32:53</span> AM | Modified: <span>19.01.2023</span> at <span class="text-body-dark">8:52:48</span> PM</p>
+            </div>
+          </div>
+
+          <div x-data="{isDelete: false}" class="flex space-x-3">
+            <button class="btn btn-accent btn-with-icon">
+              <svg class="w-5 h-5 svg-stroke">
+                <use href="img/s-spr.svg#cloud-arrow-up"></use>
+              </svg>
+
+              <span>Save</span>
+            </button>
+
+            <button x-on:click="isDelete = true" class="btn btn-error btn-with-icon">
+              <svg class="w-5 h-5 svg-stroke">
+                <use href="img/s-spr.svg#delete"></use>
+              </svg>
+
+              <span>Delete</span>
+            </button>
+
+            <template x-teleport="body">>
+              <div x-show="isDelete" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="popup" style="">
+                <div class="popup__content max-w-lg">
+                  <button x-on:click="isDelete = false" type="button" class="popup__button">
+                    <svg class="w-5 h-5 svg-stroke">
+                      <use href="img/s-spr.svg#close"></use>
+                    </svg>
+                  </button>
+
+                  <div class="space-y-5 text-center">
+                    <h3 class="text-lg font-medium">Delete practitioner</h3>
+
+                   <p>Are you sure you want to delete practitioner?<br>The operaction can not be undone!</p>
+
+                    <hr class="border-t">
+
+                    <div class="flex justify-center space-x-3">
+                      <button class="btn btn-clear">Cancel</button>
+                      <button class="btn btn-error">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+            <span class="flex items-center space-x-2">
+              <svg class="w-6 h-6 svg-stroke text-accent">
+                <use href="img/s-spr.svg#identification"></use>
+              </svg>
+              <span class="font-medium text-sm text-body-dark">General</span>
+            </span>
+
+            <svg x-bind:class="isOpen && 'rotate-180'" class="w-4 h-4 svg-stroke">
+              <use href="img/s-spr.svg#chevron-down"></use>
+            </svg>
+          </button>
+
+          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="space-y-1">
+                <label for="general-doctor-firstname" class="text-xs text-body-dark">Firstname:</label>
+                <input type="text" name="general-doctor-firstname" id="general-doctor-firstname" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-lastname" class="text-xs text-body-dark">Last name:</label>
+                <input type="text" name="general-doctor-lastname" id="general-doctor-lastname" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-city" class="text-xs text-body-dark">City:</label>
+                <input type="text" name="general-doctor-city" id="general-doctor-city" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-street" class="text-xs text-body-dark">Street:</label>
+                <input type="text" name="general-doctor-street" id="general-doctor-street" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-house-number" class="text-xs text-body-dark">House number:</label>
+                <input type="text" name="general-doctor-house-number" id="general-doctor-house-number" class="form-control">
+              </div>
+
+              <div class="grid grid-cols-3 gap-x-6">
+                <div class="space-y-1">
+                  <label for="general-doctor-zip" class="text-xs text-body-dark">ZIP:</label>
+                  <input type="text" name="general-doctor-zip" id="general-doctor-zip" class="form-control">
+                </div>
+
+                <div class="space-y-1">
+                  <label for="general-doctor-type" class="text-xs text-body-dark">Type:</label>
+                  <div class="c-select">
+                    <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                      <option></option>
+                      <option value="suite">Suite</option>
+                    </select>
+
+                    <svg class="w-3 h-3 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="space-y-1">
+                  <label for="general-doctor-state" class="text-xs text-body-dark">State:</label>
+                  <div class="c-select">
+                    <select name="general-doctor-state" id="general-doctor-state" class="form-control">
+                      <option></option>
+                      <option value="fl">FL</option>
+                    </select>
+
+                    <svg class="w-3 h-3 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-phone" class="text-xs text-body-dark">Phone:</label>
+                <input type="text" name="general-doctor-phone" id="general-doctor-phone" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-mobile" class="text-xs text-body-dark">Mobile:</label>
+                <input type="text" name="general-doctor-mobile" id="general-doctor-mobile" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-fax" class="text-xs text-body-dark">Fax:</label>
+                <input type="text" name="general-doctor-fax" id="general-doctor-fax" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-email" class="text-xs text-body-dark">Email:</label>
+                <input type="text" name="general-doctor-email" id="general-doctor-email" class="form-control">
+              </div>
+
+              <div class="space-y-1">
+                <label for="general-doctor-npi" class="text-xs text-body-dark">NPI:</label>
+                <input type="text" name="general-doctor-npi" id="general-doctor-npi" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+            <span class="flex items-center space-x-2">
+              <svg class="w-6 h-6 svg-stroke text-accent">
+                <use href="img/s-spr.svg#presentation-chart-line"></use>
+              </svg>
+              <span class="font-medium text-sm text-body-dark">Working Hours</span>
+            </span>
+
+            <svg x-bind:class="isOpen && 'rotate-180'" class="w-4 h-4 svg-stroke">
+              <use href="img/s-spr.svg#chevron-down"></use>
+            </svg>
+          </button>
+
+          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+            <div class="grid grid-cols-2 gap-6">
+              <div class="space-y-4">
+                <p><strong class="text-sm font-medium text-body-dark">Working days:</strong></p>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-monday" id="working-days-monday" class="c-radio__color" checked>
+
+                      <span>Monday</span>
+                      <span class="text-xs text-body">9:00 - 12:00, 14:00 - 16:00</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-error">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#trash"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-tuesday" id="working-days-tuesday" class="c-radio__color" checked>
+
+                      <span>Tuesday</span>
+                      <span class="text-xs text-body">9:00 - 12:00, 14:00 - 16:00</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-error">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#trash"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-wednesday" id="working-days-wednesday" class="c-radio__color">
+
+                      <span>Wednesday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-thursday" id="working-days-thursday" class="c-radio__color">
+
+                      <span>Thursday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-friday" id="working-days-friday" class="c-radio__color">
+
+                      <span>Friday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-saturday" id="working-days-saturday" class="c-radio__color">
+
+                      <span>Saturday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="working-days-sunday" id="working-days-sunday" class="c-radio__color">
+
+                      <span>Sunday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <p><strong class="text-sm font-medium text-body-dark">Copy days:</strong></p>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-monday" id="copy-days-monday" class="c-radio__color">
+
+                      <span>Monday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-error">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#trash"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-tuesday" id="copy-days-tuesday" class="c-radio__color">
+
+                      <span>Tuesday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-error">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#trash"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-wednesday" id="copy-days-wednesday" class="c-radio__color">
+
+                      <span>Wednesday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-thursday" id="copy-days-thursday" class="c-radio__color">
+
+                      <span>Thursday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-friday" id="copy-days-friday" class="c-radio__color">
+
+                      <span>Friday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-saturday" id="copy-days-saturday" class="c-radio__color">
+
+                      <span>Saturday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
+                    <label class="flex items-center space-x-3 text-sm cursor-pointer text-body-dark">
+                      <input type="checkbox" name="copy-days-sunday" id="copy-days-sunday" class="c-radio__color">
+
+                      <span>Sunday</span>
+                    </label>
+
+                    <svg x-bind:class="isOpen && 'text-accent rotate-180'" class="w-6 h-4 svg-stroke">
+                      <use href="img/s-spr.svg#chevron-down"></use>
+                    </svg>
+                  </button>
+
+                  <div x-show="isOpen" class="p-4 pt-0 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <span class="px-6">to</span>
+                      
+                      <div class="c-select flex-grow">
+                        <select name="general-doctor-type" id="general-doctor-type" class="form-control">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                          <option value="11">11:00</option>
+                        </select>
+
+                        <svg class="w-3 h-3 svg-stroke">
+                          <use href="img/s-spr.svg#chevron-down"></use>
+                        </svg>
+                      </div>
+
+                      <button class="pl-4 text-accent">
+                        <svg class="w-6 h-6 svg-stroke">
+                          <use href="img/s-spr.svg#plus-circle"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

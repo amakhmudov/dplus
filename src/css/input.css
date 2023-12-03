@@ -133,3 +133,27 @@ input.clear-number {
 .c-radio__icon input[type="radio"]:hover:before {
   @apply border-neutral-100;
 }
+
+.c-radio__color {
+  --width: 40px;
+  --dotWidth: 16px;
+
+  @apply relative inline-block h-5 w-[var(--width)] cursor-pointer appearance-none rounded-full border border-body/20 bg-white transition-all ease-linear outline-none;
+}
+
+.c-radio__color:checked,
+.c-radio__color:active {
+  @apply border-accent bg-accent;
+}
+
+.c-radio__color:before {
+  content: "";
+
+  @apply absolute top-1/2 h-4 w-[var(--dotWidth)] left-0.5 -translate-y-1/2 rounded-full bg-gray transition-all duration-300;
+}
+
+.c-radio__color:checked:before,
+.c-radio__color:active:before {
+  @apply left-[calc(var(--width)-var(--dotWidth)-3px)] bg-white;
+}
+

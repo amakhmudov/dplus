@@ -43,10 +43,7 @@ body{
   @apply text-xs px-1 py-0.5 text-xxs inline-flex items-center justify-center rounded-full leading-none text-white bg-accent;
 }
 
-
-
-
-/*.center {
+.center {
   @apply flex items-center justify-center;
 }
 
@@ -63,18 +60,18 @@ body{
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  @apply rounded-2xl bg-accent;
+  @apply rounded-2xl bg-neutral-400;
 }
 
 .custom-scroll::-webkit-scrollbar-track {
-  @apply rounded-2xl bg-accent/20;
+  @apply rounded-2xl bg-neutral-300;
 }
 
-.tooltip {
+/*.tooltip {
   @apply pointer-events-none absolute top-full left-1/2 z-10 w-36 duration-300 max-w-[200px] translate-y-4 -translate-x-1/2 rounded bg-body px-3 py-2 text-center leading-tight text-white opacity-0 shadow transition will-change-transform before:absolute before:top-0 before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:-translate-y-1/2 before:rotate-45 before:bg-body before:content-[''] group-hover:translate-y-2 group-hover:opacity-100;
 }
 
 .toastr {
   @apply fixed z-50 flex p-6 space-x-3 transition bg-white rounded-lg shadow-lg text-body top-4 right-4 will-change-transform;
-}
-*/
+}*/
+

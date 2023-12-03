@@ -8,6 +8,7 @@
 @import "./src/css/typography" layer(components);
 @import "./src/css/input" layer(components);
 @import "./src/css/button" layer(components);
+@import "./src/css/breadcrumbs" layer(components);
 @import "./src/css/table" layer(components);
 /*@import "./src/css/tabs" layer(components);*/
 @import "./src/css/popup" layer(components);

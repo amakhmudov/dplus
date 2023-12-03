@@ -1,9 +1,13 @@
 .btn{
-  @apply px-5 py-2.5 rounded hover:bg-opacity-80 transition;
+  @apply px-5 py-2.5 rounded no-underline hover:bg-opacity-80 transition;
 }
 
 .btn-accent{
   @apply text-white bg-accent;
+}
+
+.btn-error{
+  @apply text-white bg-error;
 }
 
 .btn-clear{

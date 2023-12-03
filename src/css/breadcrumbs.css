@@ -1,0 +1,11 @@
+.breadcrumbs{
+  @apply flex items-center;
+
+  li:not(:last-child){
+    @apply after:content-['/'] after:mx-1 after:text-body;
+  }
+
+  a{
+    @apply no-underline hover:underline;
+  }
+}
