@@ -1,5 +1,5 @@
 .sidebar{
-  @apply w-full max-w-xs shrink-0;
+  @apply w-60 lg:w-80 shrink-0;
 }
 
 .sidebar-nav{
