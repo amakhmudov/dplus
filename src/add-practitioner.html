@@ -216,7 +216,7 @@
         </div>
 
         <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
-          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
             <span class="flex items-center space-x-2">
               <svg class="w-6 h-6 svg-stroke text-accent">
                 <use href="img/s-spr.svg#identification"></use>
@@ -229,7 +229,7 @@
             </svg>
           </button>
 
-          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+          <div x-cloak x-show="isOpen" class="p-4">
             <div class="grid grid-cols-3 gap-3">
               <div class="space-y-1">
                 <label for="general-doctor-firstname" class="text-xs text-body-dark">Firstname:</label>
@@ -320,7 +320,7 @@
         </div>
 
         <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
-          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
             <span class="flex items-center space-x-2">
               <svg class="w-6 h-6 svg-stroke text-accent">
                 <use href="img/s-spr.svg#presentation-chart-line"></use>
@@ -333,13 +333,13 @@
             </svg>
           </button>
 
-          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+          <div x-cloak x-show="isOpen" class="p-4">
             <div class="grid grid-cols-2 gap-3">
               <div class="space-y-3">
                 <p><strong class="text-sm font-medium text-body-dark">Working days:</strong></p>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <div class="flex items-center space-x-2">
                       <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                         <input type="checkbox" name="working-days-monday" id="working-days-monday" class="c-radio__color" checked>
@@ -426,7 +426,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="working-days-tuesday" id="working-days-tuesday" class="c-radio__color" checked>
 
@@ -511,7 +511,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="working-days-wednesday" id="working-days-wednesday" class="c-radio__color">
 
@@ -561,7 +561,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="working-days-thursday" id="working-days-thursday" class="c-radio__color">
 
@@ -611,7 +611,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="working-days-friday" id="working-days-friday" class="c-radio__color">
 
@@ -661,7 +661,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="working-days-saturday" id="working-days-saturday" class="c-radio__color">
 
@@ -711,7 +711,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="working-days-sunday" id="working-days-sunday" class="c-radio__color">
 
@@ -765,7 +765,7 @@
                 <p><strong class="text-sm font-medium text-body-dark">Copy days:</strong></p>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-monday" id="copy-days-monday" class="c-radio__color">
 
@@ -849,7 +849,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-tuesday" id="copy-days-tuesday" class="c-radio__color">
 
@@ -933,7 +933,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-wednesday" id="copy-days-wednesday" class="c-radio__color">
 
@@ -983,7 +983,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-thursday" id="copy-days-thursday" class="c-radio__color">
 
@@ -1033,7 +1033,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-friday" id="copy-days-friday" class="c-radio__color">
 
@@ -1083,7 +1083,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-saturday" id="copy-days-saturday" class="c-radio__color">
 
@@ -1133,7 +1133,7 @@
                 </div>
 
                 <div x-data="{isOpen: false}" class="rounded-lg border border-body/20">
-                  <button x-on:click="isOpen = ! isOpen" class="w-full px-3 py-4 flex items-center justify-between">
+                  <button x-on:click="isOpen = ! isOpen" class="w-full p-3 flex items-center justify-between">
                     <label class="flex items-center space-x-2 text-ssm cursor-pointer text-body-dark">
                       <input type="checkbox" name="copy-days-sunday" id="copy-days-sunday" class="c-radio__color">
 
@@ -1187,7 +1187,7 @@
         </div>
 
         <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
-          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
             <span class="flex items-center space-x-2">
               <svg class="w-6 h-6 svg-stroke text-accent">
                 <use href="img/s-spr.svg#rectangle-group"></use>
@@ -1200,7 +1200,7 @@
             </svg>
           </button>
 
-          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+          <div x-cloak x-show="isOpen" class="p-4">
             <div class="grid grid-cols-2 gap-3">
               <div class="space-y-1">
                 <label for="various-auth-only-serve-type" class="text-xs text-body-dark">Auth Only Serve Type:</label>
@@ -1283,7 +1283,7 @@
         </div>
 
         <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
-          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
             <span class="flex items-center space-x-2">
               <svg class="w-6 h-6 svg-stroke text-accent">
                 <use href="img/s-spr.svg#play-pause"></use>
@@ -1296,7 +1296,7 @@
             </svg>
           </button>
 
-          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+          <div x-cloak x-show="isOpen" class="p-4">
             <div class="grid grid-cols-2 gap-3">
               <div class="flex items-center justify-between text-xs">
                 <p class="flex items-center space-x-2">
@@ -1358,7 +1358,7 @@
         </div>
 
         <div x-data="{isOpen: true}" class="bg-white rounded-lg border border-body/20 divide-y divide-y-body/20">
-          <button x-on:click="isOpen = ! isOpen" class="w-full p-6 pb-4 flex items-center justify-between">
+          <button x-on:click="isOpen = ! isOpen" class="w-full p-4 flex items-center justify-between">
             <span class="flex items-center space-x-2">
               <svg class="w-6 h-6 svg-stroke text-accent">
                 <use href="img/s-spr.svg#archive-box"></use>
@@ -1371,7 +1371,7 @@
             </svg>
           </button>
 
-          <div x-cloak x-show="isOpen" class="p-6 pt-4">
+          <div x-cloak x-show="isOpen" class="p-4">
             <div class="grid grid-cols-2 gap-3">
               <label for="attributes-has-notary" class="c-checkbox text-xs">
                 <input type="checkbox" name="attributes-has-notary" id="attributes-has-notary" checked="">
