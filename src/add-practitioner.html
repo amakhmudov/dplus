@@ -231,9 +231,9 @@
 
           <div x-cloak x-show="isOpen" class="p-4">
             <div class="grid grid-cols-3 gap-3">
-              <div class="space-y-1">
+              <div x-data="{isError: true}" class="space-y-1">
                 <label for="general-doctor-firstname" class="text-xs text-body-dark">Firstname:</label>
-                <input type="text" name="general-doctor-firstname" id="general-doctor-firstname" class="form-control">
+                <input type="text" name="general-doctor-firstname" id="general-doctor-firstname" x-bind:class="isError && 'ring-error focus:ring-error text-error shadow-none'" class="form-control">
               </div>
 
               <div class="space-y-1">

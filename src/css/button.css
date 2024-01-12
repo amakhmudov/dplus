@@ -1,5 +1,9 @@
 .btn{
-  @apply px-5 py-2.5 rounded text-ssm no-underline hover:bg-opacity-80 transition;
+  @apply px-5 py-2.5 rounded text-ssm leading-none no-underline hover:bg-opacity-80 transition;
+}
+
+.btn[disabled]{
+  @apply opacity-50 cursor-not-allowed;
 }
 
 .btn-accent{
@@ -11,7 +15,7 @@
 }
 
 .btn-clear{
-  @apply px-6 py-3 rounded border;
+  @apply border bg-white text-body;
 }
 
 .btn-with-icon{
