@@ -47,6 +47,14 @@ body{
   @apply flex items-center justify-center;
 }
 
+.toastr {
+  @apply fixed z-20 flex p-3 pr-10 space-x-2 transition bg-white rounded-lg shadow text-body top-4 right-4 will-change-transform;
+}
+
+.loading {
+  @apply fixed z-20 flex items-center justify-center transition bg-black/80 backdrop-blur-sm text-white inset-0 will-change-transform;
+}
+
 .custom-scroll.custom-scroll-y {
   @apply pr-2;
 }

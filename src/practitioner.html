@@ -11,7 +11,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
 </head>
 
-<body x-data="{bodyScroll: true}" x-bind:class="bodyScroll || 'overflow-hidden'">
+<body x-data="{bodyScroll: true, isLoading: false, isToastr: false, isToastrSuccess: false}" x-bind:class="[(bodyScroll || 'overflow-hidden'), (isLoading && 'overflow-hidden')]">
   <div id="container" class="container px-0 flex mx-auto bg-accent-dark">
     <aside class="sidebar p-4 flex flex-col space-y-8">
       <a href="#">
@@ -832,6 +832,37 @@
         </div>
       </div>
     </main>
+  </div>
+
+  <div x-cloak x-show="isToastr" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 translate-y-0 delay-1000" x-transition:leave-end="opacity-0 -translate-y-4" class="toastr">
+    <svg x-bind:class="isToastrSuccess ? 'text-accent' : 'text-error'" class="w-6 h-6 svg-stroke shrink-0 mt-0.5">
+      <use x-bind:class="isToastrSuccess || 'hidden'" href="img/s-spr.svg#check-circle"></use>
+      <use x-bind:class="isToastrSuccess && 'hidden'" href="img/s-spr.svg#exclamation-triangle"></use>
+    </svg>
+
+    <div class="space-y-1">
+      <p class="font-medium text-sm">Changes <span x-cloak x-show="isToastrSuccess">saved</span><span x-cloak x-show="!isToastrSuccess">are not saved</span></p>
+      <p class="text-body-light">Notification will disappear in a second</p>
+    </div>
+
+    <button x-on:click="isToastr = false" class="popup__button">
+      <svg class="w-5 h-5 svg-stroke">
+        <use href="img/s-spr.svg#close"></use>
+      </svg>
+    </button>
+  </div>
+
+  <div x-cloak x-show="isLoading" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="loading">
+    <p class="flex items-center space-x-2 text-sm tracking-wide">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" class="w-10 h-10 shrink-0">
+        <path fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z">
+          <animate attributeName="stroke-dashoffset" calcMode="spline" dur="3" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite">
+          </animate>
+        </path>
+      </svg>
+
+      <span class="shrink-0">Loading data...</span>
+    </p>
   </div>
 </body>
 </html>
